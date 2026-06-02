@@ -15,7 +15,6 @@ from utils import (
     crear_grafico_circular,
     crear_sankey,
     crear_heatmap_costos,
-    formatear_numero,
     ALMACENES_DEFAULT,
     CLIENTES_DEFAULT,
     COSTOS_DEFAULT,
