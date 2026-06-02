@@ -78,8 +78,7 @@ with st.sidebar:
     """, unsafe_allow_html=True)
 
     # Navigation
-    st.markdown("""
-    <div style="
+    st.markdown("""<div style="
         padding: 8px 12px 4px;
         font-size: 10px;
         color: #6B7280;
