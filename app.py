@@ -112,8 +112,7 @@ with st.sidebar:
     color_bal = "#43A047" if abs(oferta_t - demanda_t) < 1 else "#F59E0B"
     lbl_bal = "Balanceado" if abs(oferta_t - demanda_t) < 1 else "Desequilibrado"
 
-    st.markdown(f"""
-    <div style="
+    st.markdown(f"""<div style="
         margin: 16px 8px 0;
         background: rgba(255,255,255,0.05);
         border-radius: 10px;
@@ -153,11 +152,9 @@ with st.sidebar:
             font-weight:600;
             color:{color_bal};
         ">{lbl_bal}</div>
-    </div>
-    """, unsafe_allow_html=True)
+    </div>""", unsafe_allow_html=True)
 
-    st.markdown("""
-    <div style="
+    st.markdown("""<div style="
         padding: 16px 8px 20px;
         font-size: 11px;
         color: #4B5563;
@@ -167,16 +164,14 @@ with st.sidebar:
     ">
         Investigacion Operativa<br>
         <span style="color:#6B7280;">Universidad — 2026</span>
-    </div>
-    """, unsafe_allow_html=True)
+    </div>""", unsafe_allow_html=True)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
 # HELPERS
 # ─────────────────────────────────────────────────────────────────────────────
 def page_header(titulo, subtitulo="", icono=""):
-    st.markdown(f"""
-    <div style="
+    st.markdown(f"""<div style="
         background: #FFFFFF;
         border: 1px solid #E5E7EB;
         border-radius: 14px;
@@ -199,26 +194,22 @@ def page_header(titulo, subtitulo="", icono=""):
             ">{titulo}</div>
             {f'<div style="font-size:14px;color:#6B7280;margin-top:4px;font-weight:400;">{subtitulo}</div>' if subtitulo else ''}
         </div>
-    </div>
-    """, unsafe_allow_html=True)
+    </div>""", unsafe_allow_html=True)
 
 
 def card(contenido_html, padding="20px 24px"):
-    st.markdown(f"""
-    <div style="
+    st.markdown(f"""<div style="
         background:#FFFFFF;
         border:1px solid #E5E7EB;
         border-radius:12px;
         padding:{padding};
         box-shadow:0 1px 3px rgba(0,0,0,0.06);
         margin-bottom:16px;
-    ">{contenido_html}</div>
-    """, unsafe_allow_html=True)
+    ">{contenido_html}</div>""", unsafe_allow_html=True)
 
 
 def kpi_badge(label, valor, color="#FB8C00", icono=""):
-    return f"""
-    <div style="
+    return f"""<div style="
         background:#FFFFFF;
         border:1px solid #E5E7EB;
         border-radius:12px;
@@ -267,8 +258,7 @@ def pagina_inicio():
     col_desc, col_flujo = st.columns([3, 2])
 
     with col_desc:
-        card("""
-        <div style="font-family:'Sora','Inter',sans-serif;font-size:17px;
+        card("""<div style="font-family:'Sora','Inter',sans-serif;font-size:17px;
                     font-weight:600;color:#111827;margin-bottom:12px;">
             ¿Que es EGGROUTE?
         </div>
@@ -300,12 +290,10 @@ def pagina_inicio():
                          border-radius:20px;padding:5px 14px;font-size:12px;font-weight:600;">
                 Plotly Visualizations
             </span>
-        </div>
-        """)
+        </div>""")
 
     with col_flujo:
-        card("""
-        <div style="font-family:'Sora','Inter',sans-serif;font-size:15px;
+        card("""<div style="font-family:'Sora','Inter',sans-serif;font-size:15px;
                     font-weight:600;color:#111827;margin-bottom:16px;">
             Flujo del Sistema
         </div>
@@ -344,12 +332,10 @@ def pagina_inicio():
                              font-size:13px;font-weight:700;color:white;flex-shrink:0;">5</div>
                 <div style="font-size:13.5px;color:#374151;">Analizar <b>resultados</b> y visualizaciones</div>
             </div>
-        </div>
-        """)
+        </div>""")
 
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown("""
-    <div style="
+    st.markdown("""<div style="
         background: linear-gradient(135deg, #1F2937 0%, #374151 100%);
         border-radius: 14px;
         padding: 24px 32px;
@@ -377,8 +363,7 @@ def pagina_inicio():
             color:white;
             cursor:pointer;
         ">⚙ Ir a Optimizacion →</div>
-    </div>
-    """, unsafe_allow_html=True)
+    </div>""", unsafe_allow_html=True)
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -390,11 +375,9 @@ def pagina_almacenes():
     col_form, col_tabla = st.columns([1, 2])
 
     with col_form:
-        card("""
-        <div style="font-size:15px;font-weight:600;color:#111827;margin-bottom:16px;">
+        card("""<div style="font-size:15px;font-weight:600;color:#111827;margin-bottom:16px;">
             Agregar Almacen
-        </div>
-        """)
+        </div>""")
         with st.form("form_almacen", clear_on_submit=True):
             nombre_a = st.text_input("Nombre del Almacen", placeholder="Ej: El Alto, Zona Sur...")
             oferta_a = st.number_input("Oferta disponible (cajas)", min_value=1, value=1000, step=100)
@@ -426,12 +409,9 @@ def pagina_almacenes():
 
     with col_tabla:
         if st.session_state.almacenes:
-            st.markdown("""
-            <div style="font-size:13px;color:#6B7280;margin-bottom:10px;font-weight:500;">
+            st.markdown("""<div style="font-size:13px;color:#6B7280;margin-bottom:10px;font-weight:500;">
                 Puede editar la tabla directamente. Los cambios se aplican al guardar.
-            </div>
-            """, unsafe_allow_html=True)
-
+            </div>""", unsafe_allow_html=True)
             df_almacenes = pd.DataFrame(st.session_state.almacenes)
             df_edited = st.data_editor(
                 df_almacenes,
@@ -491,11 +471,9 @@ def pagina_clientes():
     col_form, col_tabla = st.columns([1, 2])
 
     with col_form:
-        card("""
-        <div style="font-size:15px;font-weight:600;color:#111827;margin-bottom:16px;">
+        card("""<div style="font-size:15px;font-weight:600;color:#111827;margin-bottom:16px;">
             Agregar Cliente
-        </div>
-        """)
+        </div>""")
         with st.form("form_cliente", clear_on_submit=True):
             nombre_c = st.text_input("Nombre del Cliente", placeholder="Ej: Mercado Rodriguez...")
             demanda_c = st.number_input("Demanda requerida (cajas)", min_value=1, value=500, step=50)
@@ -526,12 +504,9 @@ def pagina_clientes():
 
     with col_tabla:
         if st.session_state.clientes:
-            st.markdown("""
-            <div style="font-size:13px;color:#6B7280;margin-bottom:10px;font-weight:500;">
+            st.markdown("""<div style="font-size:13px;color:#6B7280;margin-bottom:10px;font-weight:500;">
                 Puede editar la tabla directamente. Los cambios se aplican al guardar.
-            </div>
-            """, unsafe_allow_html=True)
-
+            </div>""", unsafe_allow_html=True)
             df_clientes = pd.DataFrame(st.session_state.clientes)
             df_edited = st.data_editor(
                 df_clientes,
@@ -614,8 +589,7 @@ def pagina_costos():
     nombres_a = [a['nombre'] for a in st.session_state.almacenes]
     nombres_c = [c['nombre'] for c in st.session_state.clientes]
 
-    st.markdown("""
-    <div style="
+    st.markdown("""<div style="
         background:#FFF8F0;
         border:1px solid #FB8C0040;
         border-left:4px solid #FB8C00;
@@ -627,8 +601,7 @@ def pagina_costos():
     ">
         <b>Instrucciones:</b> Ingrese el costo en <b>bolivianos (Bs.)</b> por caja de transportar
         desde cada almacen (filas) hacia cada cliente (columnas). Haga clic en cualquier celda para editarla.
-    </div>
-    """, unsafe_allow_html=True)
+    </div>""", unsafe_allow_html=True)
 
     df_costos = pd.DataFrame(costos, index=nombres_a, columns=nombres_c)
 
